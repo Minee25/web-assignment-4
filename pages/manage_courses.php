@@ -51,9 +51,9 @@
                   ];
                   $count = 1;
                 ?>
-                <?php foreach($_SESSION['course_list'] as $i => $course) { ?>
+                <?php foreach($_SESSION['course_list'] as $key => $course) { ?>
                   <tr class="border-b hover:bg-gray-50">
-                    <td class="p-3 text-left"><?= $i + 1 ?></td>
+                    <td class="p-3 text-left"><?= $key + 1 ?></td>
                     <td class="p-3 text-left"><?= htmlspecialchars($course['subject_name']) ?></td>
                     <td class="p-3 text-center"><?= htmlspecialchars($course['credit']) ?></td>
                     <td class="p-3 text-center font-bold">
@@ -62,12 +62,12 @@
                       </span>
                     </td>
                     <td class="p-3 text-center flex gap-2 justify-center">
-                      <button data-key="<?= $i ?>" data-subject_name="<?= htmlspecialchars($course['subject_name']) ?>" data-credit="<?= $course['credit'] ?>" data-grade="<?= $course['grade'] ?>" class="edit-form cursor-pointer text-blue-500 font-medium rounded-lg text-md outline-none hover:text-blue-700 active:ring-2 active:ring-blue-300 duration-300">
+                      <button data-key="<?= $key ?>" data-subject_name="<?= htmlspecialchars($course['subject_name']) ?>" data-credit="<?= $course['credit'] ?>" data-grade="<?= $course['grade'] ?>" class="edit-form cursor-pointer text-blue-500 font-medium rounded-lg text-md outline-none hover:text-blue-700 active:ring-2 active:ring-blue-300 duration-300">
                         <i class="fa-solid fa-pen-to-square"></i>
                       </button>
                       <?php if (empty($course['grade'])) { ?>
                         <form action="delete.php" method="post" class="delete-form">
-                          <input type="hidden" name="key" value="<?= $i ?>">
+                          <input type="hidden" name="key" value="<?= $key ?>">
                           <button class="cursor-pointer text-red-500 font-medium rounded-lg text-md outline-none hover:text-red-700 active:ring-2 active:ring-red-300 duration-300">
                             <i class="fa-solid fa-trash"></i>
                           </button>

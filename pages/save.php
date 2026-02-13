@@ -11,8 +11,8 @@
   if ($subject_name !== '' && $credit !== '') {
     $_SESSION['course_list'][] = [
       'subject_name' => $subject_name,
-      'credit'       => $credit,
-      'grade'        => $grade,
+      'credit' => $credit,
+      'grade' => $grade,
     ];
   }
 

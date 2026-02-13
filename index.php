@@ -26,7 +26,6 @@
     'F'  => 0
   ];
 
-  $count = 1;
   $sumCredit = 0;
   $sumScore = 0.0;
 ?>
@@ -66,13 +65,13 @@
                 </tr>
               </thead>
               <tbody class="text-gray-700">
-                <?php foreach($_SESSION['course_list'] as $key => $course) { ?>
+                <?php foreach($_SESSION['course_list'] as $i => $course) { ?>
                 <?php 
                   $sumCredit += $course['credit']; 
                   $sumScore += $course['credit'] * ($gradeScores[$course['grade']] ?? 0);
                 ?>
                   <tr class="border-b hover:bg-gray-50">
-                    <td class="p-3 text-left"><?php echo($count); $count++;?></td>
+                    <td class="p-3 text-left"><?= $i + 1 ?></td>
                     <td class="p-3 text-left"><?= htmlspecialchars($course['subject_name']) ?></td>
                     <td class="p-3 text-center"><?= htmlspecialchars($course['credit']) ?></td>
                     <td class="p-3 text-center font-bold">
